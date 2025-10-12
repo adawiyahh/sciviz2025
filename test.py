@@ -9,6 +9,7 @@ st.set_page_config(
 st.header("Scientific Visualization", divider="gray")
 
 
+gender_counts = law_df['Gender'].value_counts()
 # Assuming 'law_df' is already defined
 gender_counts = law_df['Gender'].value_counts().reset_index()
 gender_counts.columns = ['Gender', 'Count']
