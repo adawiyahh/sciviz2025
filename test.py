@@ -2,57 +2,47 @@ import streamlit as st
 import plotly.express as px
 import pandas as pd
 
-st.set_page_config(
-    page_title="Scientific Visualization"
-)
+st.set_page_config(page_title="Scientific Visualization")
 
 st.header("Scientific Visualization", divider="gray")
 
+# Upload dataset 
+uploaded_file = st.file_uploader("Upload your Law Faculty dataset (CSV)", type="csv")
 
-gender_counts = law_df['Gender'].value_counts()
-# Assuming 'law_df' is already defined
-gender_counts = law_df['Gender'].value_counts().reset_index()
-gender_counts.columns = ['Gender', 'Count']
+if uploaded_file is not None:
+    # Read uploaded CSV into DataFrame
+    law_df = pd.read_csv(uploaded_file)
 
-# Create pie chart using Plotly
-fig = px.pie(
-    gender_counts,
-    names='Gender',
-    values='Count',
-    title='Gender Distribution in Law Faculty',
-    hole=0,  # 0 means full pie (1 means donut)
-)
+    # ---- Gender Distribution Pie Chart ----
+    gender_counts = law_df['Gender'].value_counts().reset_index()
+    gender_counts.columns = ['Gender', 'Count']
 
-# Display in Streamlit
-st.plotly_chart(fig, use_container_width=True)
+    fig_pie = px.pie(
+        gender_counts,
+        names='Gender',
+        values='Count',
+        title='Gender Distribution in Law Faculty',
+        hole=0  # 0 = full pie, 1 = donut
+    )
+    st.plotly_chart(fig_pie, use_container_width=True)
 
+    # ---- Gender Distribution Bar Chart ----
+    fig_bar = px.bar(
+        gender_counts,
+        x='Gender',
+        y='Count',
+        title='Gender Distribution in Law Faculty',
+        text='Count',
+        color='Gender'
+    )
+    fig_bar.update_layout(
+        xaxis_title='Gender',
+        yaxis_title='Count',
+        xaxis_tickangle=0
+    )
+    st.plotly_chart(fig_bar, use_container_width=True)
 
-
-
-
-
-# Assuming 'law_df' is already defined
-gender_counts = law_df['Gender'].value_counts().reset_index()
-gender_counts.columns = ['Gender', 'Count']
-
-# Create bar chart using Plotly
-fig = px.bar(
-    gender_counts,
-    x='Gender',
-    y='Count',
-    title='Gender Distribution in Law Faculty',
-    text='Count',
-    color='Gender'
-)
-
-# Customize layout
-fig.update_layout(
-    xaxis_title='Gender',
-    yaxis_title='Count',
-    xaxis_tickangle=0
-)
-
-# Display in Streamlit
-st.plotly_chart(fig, use_container_width=True)
+else:
+    st.warning("👆 Please upload a CSV file to visualize the data.")
 
 
