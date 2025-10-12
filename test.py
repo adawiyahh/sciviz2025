@@ -12,6 +12,7 @@ csv_url = "https://raw.githubusercontent.com/adawiyahh/sciviz2025/refs/heads/mai
 
 # Read dataset directly from GitHub
 law_df = pd.read_csv(csv_url)
+st.dataframe(law_df)
 
 # ---- Gender Distribution Pie Chart ----
 gender_counts = law_df['Gender'].value_counts().reset_index()
