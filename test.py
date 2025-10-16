@@ -45,6 +45,9 @@ fig_bar.update_layout(
 )
 st.plotly_chart(fig_bar, use_container_width=True)
 
+# Visualization Section
+st.markdown("## Visualization")
+
 # Academic Year Distribution (Matplotlib + Seaborn)
 st.subheader("Academic Year Distribution")
 
@@ -62,7 +65,7 @@ plt.xticks(rotation=45, ha='right')
 st.pyplot(fig)
 
 # Interpretation Section
-st.markdown("### 📊 Interpretation")
+st.markdown("### Interpretation")
 st.write("""
 The chart shows how Law students are distributed across different academic years.  
 If there are more students in the first or second year, it may mean more new students have recently joined the program.  
