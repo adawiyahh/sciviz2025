@@ -67,10 +67,7 @@ st.pyplot(fig)
 # Interpretation Section
 st.markdown("### Interpretation")
 st.write("""
-The chart shows how Law students are distributed across different academic years.  
-If there are more students in the first or second year, it may mean more new students have recently joined the program.  
-Having fewer students in the final years could be because some have graduated or stopped studying.  
-This helps the university understand student retention and plan for future intakes.
+The chart shows how Law students are distributed across different academic years. If there are more students in the first or second year, it may mean more new students have recently joined the program. Having fewer students in the final years could be because some have graduated or stopped studying. This helps the university see how many students continue each year and plan better for future intakes.
 """)
 
 # Best Aspects of the Program (Q7)
