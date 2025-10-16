@@ -8,6 +8,8 @@ st.set_page_config(page_title="Scientific Visualization")
 
 st.header("Scientific Visualization", divider="gray")
 
+st.subheader("Dataset: Survey from Law Faculty")
+
 # Load dataset from GitHub 
 # Replace this URL with your actual raw CSV file link
 csv_url = "https://raw.githubusercontent.com/adawiyahh/sciviz2025/refs/heads/main/law_faculty_survey.csv"
@@ -24,7 +26,7 @@ fig_pie = px.pie(
     gender_counts,
     names='Gender',
     values='Count',
-    title='Gender Distribution in Law Faculty',
+    title='Gender Distribution in Law Faculty using Pie Chart',
     hole=0  # 0 = full pie, 1 = donut
 )
 st.plotly_chart(fig_pie, use_container_width=True)
@@ -34,7 +36,7 @@ fig_bar = px.bar(
     gender_counts,
     x='Gender',
     y='Count',
-    title='Gender Distribution in Law Faculty',
+    title='Gender Distribution in Law Faculty using Bar Chart',
     text='Count',
     color='Gender'
 )
