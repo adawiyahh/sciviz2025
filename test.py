@@ -3,7 +3,7 @@ import streamlit as st
 st.set_page_config(
     page_title="Student Survey"
 )
-visualise = st.Page('StudentSurvey.py', title='Dataset Survey from Law Faculty', icon=":material/school:")
+visualise = st.Page('StudentSurvey.py', title='Law Faculty', icon=":material/school:")
 
 home = st.Page('home.py', title='Homepage', default=True, icon=":material/home:")
 
